@@ -1,0 +1,28 @@
+- 가져오기 -
+adb pull /vendor/etc/audio_policy_configuration.xml ./
+adb pull /vendor/etc/audio_policy_configuration_sec.xml ./
+
+- 권한 -
+su
+setenforce 0
+getenforce
+magisk --unlock-blocks
+
+- 폴더 해제 -
+chmod 777 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
+chmod 644 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
+
+chmod 777 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
+chmod 644 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
+
+- 파일 복사 및 이름 변경 -
+cp /storage/emulated/0/backup/audio_policy_configuration.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
+cp /storage/emulated/0/backup/audio_policy_configuration_sec.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
+
+- 복원 -
+cp /storage/emulated/0/backup/audio_policy_configuration_origin.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
+cp /storage/emulated/0/backup/audio_policy_configuration_sec_orign.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
+
+- 초기화 -
+stop audioserver
+start audioserver
