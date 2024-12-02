@@ -1,3 +1,8 @@
+- adb wifi 연결 -
+adb tcpip 5555
+adb connect 172.30.1.51:5555
+adb shell dumpsys media.audio_policy
+
 - 가져오기 -
 adb pull /vendor/etc/audio_policy_configuration.xml ./
 adb pull /vendor/etc/audio_policy_configuration_sec.xml ./
@@ -5,8 +10,8 @@ adb pull /vendor/etc/audio_policy_configuration_sec.xml ./
 - 권한 -
 su
 setenforce 0
-getenforce
 magisk --unlock-blocks
+getenforce
 
 - 폴더 해제 -
 chmod 777 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
@@ -21,7 +26,7 @@ cp /storage/emulated/0/backup/audio_policy_configuration_sec.xml /data/adb/modul
 
 - 복원 -
 cp /storage/emulated/0/backup/audio_policy_configuration_origin.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
-cp /storage/emulated/0/backup/audio_policy_configuration_sec_orign.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
+cp /storage/emulated/0/backup/audio_policy_configuration_sec_origin.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
 
 - 초기화 -
 stop audioserver
