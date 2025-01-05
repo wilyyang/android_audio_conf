@@ -15,21 +15,25 @@ magisk --unlock-blocks
 getenforce
 
 - 폴더 해제 -
+chmod 777 /data/adb/modules/aml/system/vendor/etc/audio_policy.conf
 chmod 777 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
 chmod 777 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
 chmod 777 /data/adb/modules/aml/system/vendor/etc/r_submix_audio_policy_configuration.xml
 
+chmod 644 /data/adb/modules/aml/system/vendor/etc/audio_policy.conf
 chmod 644 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
 chmod 644 /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
 chmod 644 /data/adb/modules/aml/system/vendor/etc/r_submix_audio_policy_configuration.xml
 
 
 - 파일 복사 및 이름 변경 -
+cp /storage/emulated/0/backup/audio_policy.conf /data/adb/modules/aml/system/vendor/etc/audio_policy.conf
 cp /storage/emulated/0/backup/audio_policy_configuration.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
 cp /storage/emulated/0/backup/audio_policy_configuration_sec.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
 cp /storage/emulated/0/backup/r_submix_audio_policy_configuration.xml /data/adb/modules/aml/system/vendor/etc/r_submix_audio_policy_configuration.xml
 
 - 복원 -
+cp /storage/emulated/0/backup/audio_policy_origin.conf /data/adb/modules/aml/system/vendor/etc/audio_policy.conf
 cp /storage/emulated/0/backup/audio_policy_configuration_origin.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration.xml
 cp /storage/emulated/0/backup/audio_policy_configuration_sec_origin.xml /data/adb/modules/aml/system/vendor/etc/audio_policy_configuration_sec.xml
 cp /storage/emulated/0/backup/r_submix_audio_policy_configuration_origin.xml /data/adb/modules/aml/system/vendor/etc/r_submix_audio_policy_configuration.xml
