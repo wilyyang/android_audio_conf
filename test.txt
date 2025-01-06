@@ -41,3 +41,6 @@ cp /storage/emulated/0/backup/r_submix_audio_policy_configuration_origin.xml /da
 - 초기화 -
 stop audioserver
 start audioserver
+
+- 오디오 파일 가져오기 -
+adb shell dumpsys audio > ./audio_dump.txt
