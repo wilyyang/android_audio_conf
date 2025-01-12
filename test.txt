@@ -44,3 +44,8 @@ start audioserver
 
 - 오디오 파일 가져오기 -
 adb shell dumpsys audio > ./audio_dump.txt
+adb shell dumpsys media.audio_flinger > ./audio_media_dump.txt
+
+60      audio: [android.media.IAudioService]
+service call audio 60 i32 0 i32 0 i32 1 i32 8000
+service call audio 60 i32 0 i32 0 i32 1 i32 16
