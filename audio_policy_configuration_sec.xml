@@ -137,11 +137,16 @@
                 </devicePort>
                 <devicePort tagName="USB Headset In" type="AUDIO_DEVICE_IN_USB_HEADSET" role="source">
                 </devicePort>
-               <devicePort tagName="Remote Submix In" type="AUDIO_DEVICE_IN_REMOTE_SUBMIX" role="source">
-                   <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="48000"
-                            channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
-               </devicePort>
+                <devicePort tagName="Remote Submix Out" type="AUDIO_DEVICE_OUT_REMOTE_SUBMIX" role="sink">
+                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                              samplingRates="48000"
+                              channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
+                <devicePort tagName="Remote Submix In" type="AUDIO_DEVICE_IN_REMOTE_SUBMIX" role="source">
+                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                              samplingRates="48000"
+                              channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+                </devicePort>
             </devicePorts>
             <routes>
                 <route type="mix" sink="Earpiece"
@@ -165,7 +170,7 @@
                 <route type="mix" sink="Telephony Tx"
                        sources="Built-In Mic,Built-In Back Mic,Built-In 2 Mic,Wired Headset Mic,BT SCO Headset Mic,USB Device In,USB Headset In,incall_music_uplink"/>
                 <route type="mix" sink="primary-in"
-                       sources="Remote Submix In"/>
+                       sources="Built-In Mic,Built-In Back Mic,Built-In 2 Mic,Wired Headset Mic,BT SCO Headset Mic,USB Device In,USB Headset In,FM Tuner,Remote Submix In"/>
                 <route type="mix" sink="voice tx"
                        sources="Voice Call Mic"/>
                 <route type="mix" sink="hifi_input"

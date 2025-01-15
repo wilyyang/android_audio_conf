@@ -43,9 +43,12 @@ stop audioserver
 start audioserver
 
 - 오디오 파일 가져오기 -
+adb shell dumpsys media.audio_policy > ./audio_policy.txt
 adb shell dumpsys audio > ./audio_dump.txt
-adb shell dumpsys media.audio_flinger > ./audio_media_dump.txt
+adb shell dumpsys media.audio_flinger > ./audio_media.txt
 
-60      audio: [android.media.IAudioService]
-service call audio 60 i32 0 i32 0 i32 1 i32 8000
-service call audio 60 i32 0 i32 0 i32 1 i32 16
+service list | grep audio
+160     media.audio_flinger: [android.media.IAudioFlingerService]
+161     media.audio_policy: [android.media.IAudioPolicyService]
+
+service call media.audio_policy [METHOD_NUMBER] [ARGS]
